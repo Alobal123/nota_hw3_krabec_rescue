@@ -1,0 +1,71 @@
+{
+	"additionalNodes": [],
+	"additionalParameters": {
+		"root": {
+			"height": 88,
+			"width": 180
+		}
+	},
+	"inputs": [],
+	"outputs": [],
+	"properties": {
+		"2Sdd6sMNHYlQguYFBXsP6zxb6KY68NWk": {
+			"height": 72,
+			"title": "echo",
+			"width": 131,
+			"x": 441,
+			"y": 35
+		},
+		"rZuwjuchj2BjOxOLDf3j6xGPkysaQYdN": {
+			"height": 94,
+			"title": "store",
+			"width": 337,
+			"x": 436,
+			"y": -71
+		},
+		"y20pRcBsuuU5HAS7v3nKuEtpVitjkcS7": {
+			"height": 60,
+			"title": "sequence",
+			"width": 143,
+			"x": 215,
+			"y": 10
+		}
+	},
+	"roles": [ {
+		"categories": [],
+		"name": "Role 0"
+	} ],
+	"root": {
+		"children": [ {
+			"children": [],
+			"id": "rZuwjuchj2BjOxOLDf3j6xGPkysaQYdN",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "var",
+				"value": "x"
+			}, {
+				"name": "value",
+				"value": "nota_hw3_krabec_rescue.DangerMap()"
+			}, {
+				"name": "scriptName",
+				"value": "store"
+			} ],
+			"scriptName": "store"
+		}, {
+			"children": [],
+			"id": "2Sdd6sMNHYlQguYFBXsP6zxb6KY68NWk",
+			"nodeType": "luaCommand",
+			"parameters": [ {
+				"name": "msg",
+				"value": "x"
+			}, {
+				"name": "scriptName",
+				"value": "echo"
+			} ],
+			"scriptName": "echo"
+		} ],
+		"id": "y20pRcBsuuU5HAS7v3nKuEtpVitjkcS7",
+		"nodeType": "sequence",
+		"parameters": []
+	}
+}
