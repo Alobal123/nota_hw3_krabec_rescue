@@ -17,14 +17,13 @@ end
 
 function euclideanDistance(v1,v2)
 	return math.sqrt((v1["x"] - v2["x"])*(v1["x"] - v2["x"]) + (v1["z"] - v2["z"])*(v1["z"] - v2["z"]))
-
 end
 
 
 -- @description return list of all positions on a map evaluated by their danger
 return function()
 	local X,Z = Game.mapSizeX , Game.mapSizeZ
-	local areaSize = 500
+	local areaSize = 20
 	X,Z = math.floor(X/areaSize), math.floor(Z/areaSize)
 	local spots = {}
 	
@@ -33,14 +32,25 @@ return function()
 			x = i*areaSize
 			z = j*areaSize
 			y = Spring.GetGroundHeight(x,z)
+			loc = Vec3(x,0,z)
 			if (y < 200) then
-				spots[Vec3(x,0,z)] = 1
-			end
+				spots[loc] = 1
 			else 
-				spots[Vec3(x,0,z)] = 0
+				spots[loc] = 0
 			end
 		end
 	end
-	return spots
+	local enemies = Spring.GetTeamUnits(1)
+	for key,value in pairs(enemies) do
+		loc = Vec3(Spring.GetUnitPosition(value))
+		x = math.floor(loc["x"]/areaSize)
+		z = math.floor(loc["z"]/areaSize)
+		for i=0,5 do
+			for j =0,5 do
+				spots[Vec3((x+i)*areaSize,0,(z+j)*areaSize)] = 0
+			end
+		end
+	end
 	
+	return spots
 end

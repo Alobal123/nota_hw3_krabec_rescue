@@ -1,5 +1,17 @@
 {
-	"additionalNodes": [],
+	"additionalNodes": [ {
+		"children": [],
+		"id": "2Sdd6sMNHYlQguYFBXsP6zxb6KY68NWk",
+		"nodeType": "luaCommand",
+		"parameters": [ {
+			"name": "msg",
+			"value": "x"
+		}, {
+			"name": "scriptName",
+			"value": "echo"
+		} ],
+		"scriptName": "echo"
+	} ],
 	"additionalParameters": {
 		"root": {
 			"height": 88,
@@ -13,8 +25,8 @@
 			"height": 72,
 			"title": "echo",
 			"width": 131,
-			"x": 441,
-			"y": 35
+			"x": 491,
+			"y": 50
 		},
 		"rZuwjuchj2BjOxOLDf3j6xGPkysaQYdN": {
 			"height": 94,
@@ -51,18 +63,6 @@
 				"value": "store"
 			} ],
 			"scriptName": "store"
-		}, {
-			"children": [],
-			"id": "2Sdd6sMNHYlQguYFBXsP6zxb6KY68NWk",
-			"nodeType": "luaCommand",
-			"parameters": [ {
-				"name": "msg",
-				"value": "x"
-			}, {
-				"name": "scriptName",
-				"value": "echo"
-			} ],
-			"scriptName": "echo"
 		} ],
 		"id": "y20pRcBsuuU5HAS7v3nKuEtpVitjkcS7",
 		"nodeType": "sequence",
