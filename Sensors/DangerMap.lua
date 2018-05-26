@@ -31,15 +31,11 @@ return function()
 		for i=0, X do
 			x = i*areaSize
 			z = j*areaSize
-			y = Spring.GetGroundHeight(x,z)
 			loc = Vec3(x,0,z)
-			if (y < 200) then
-				spots[loc] = 1
-			else 
-				spots[loc] = 0
-			end
+			spots[loc] = 1
 		end
 	end
+	
 	local enemies = Spring.GetTeamUnits(1)
 	for key,value in pairs(enemies) do
 		loc = Vec3(Spring.GetUnitPosition(value))
@@ -51,6 +47,19 @@ return function()
 			end
 		end
 	end
+	
+	for j=0, Z do
+		for i=0, X do
+			x = i*areaSize
+			z = j*areaSize
+			y = Spring.GetGroundHeight(x,z)
+			loc = Vec3(x,0,z)
+			if (y < 200) then
+				spots[loc] = 1
+			end
+		end
+	end
+
 	
 	return spots
 end
