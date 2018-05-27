@@ -1,3 +1,28 @@
+List = {}
+function List.new ()
+  return {first = 0, last = -1}
+end
+
+function List.pushright (list, value)
+  local last = list.last + 1
+  list.last = last
+  list[last] = value
+end
+
+function List.popleft (list)
+  local first = list.first
+  if first > list.last then error("list is empty") end
+  local value = list[first]
+  list[first] = nil        -- to allow garbage collection
+  list.first = first + 1
+  return value
+end
+
+function List.isEmpty(list)
+	return not (list.first > list.last)
+end
+
+
 
 local sensorInfo = {
 	name = "FindSafePath",
@@ -15,20 +40,25 @@ function getInfo()
 	}
 end
 
-areaSize = 50
+areaSize = 100
 X,Z = Game.mapSizeX , Game.mapSizeZ
 function isOnMap(loc)
 	return loc['x'] > 0 and loc['x']<= X and loc['z'] > 0 and loc['z']<= Z
 end
 
+
 function getNeighbours(loc)
 	local neighs = {}
 	for dx=-1,1 do
-		for dz = -1,1 do
-			vector = Vec3(loc["x"] + dx*areaSize,0,loc["z"] + dz*areaSize)
-			if not (dx==0 and dz == 0) and isOnMap(vector)then
-				neighs[Vec3(dx,0,dz)] = vector
-			end
+		vector = Vec3(loc["x"] + dx*areaSize,0,loc["z"])
+		if dx~=0 and isOnMap(vector)then
+			neighs[Vec3(dx,0,dz)] = vector
+		end
+	end
+	for dz = -1,1 do 
+		vector = Vec3(loc["x"],0,loc["z"] + dz*areaSize)
+		if dz ~= 0 and isOnMap(vector)then
+			neighs[Vec3(dx,0,dz)] = vector
 		end
 	end
 	return neighs
@@ -46,22 +76,25 @@ end
 -- @description return list of all positions on a map evaluated by their danger
 return function(from, to, dangerMap)
 	searching = true
-	q = {}
+	q = List.new()
 	visited = {}
 	i = 0
 	start = gridize(from)
 	goal = gridize(to)
-	q[#q+1] = start
+	--q[#q+1] = start
+	List.pushright(q,start)
 	visited[start] = 0
 
 	
-	while searching and #q > 0  do
-		opened = table.remove(q, 1)
+	while searching and List.isEmpty(q) do
+		--opened = table.remove(q, 1)
+		opened = List.popleft(q)
 		neighs = getNeighbours(opened)
 		
 		for _,value in pairs(neighs) do
 			if visited[str(value)] == nil then--and dangerMap[value] == 1 then
-				q[#q+1] = value
+				--q[#q+1] = value
+				List.pushright(q,value)
 				visited[str(value)] = opened
 				if value == goal then
 					searching = false

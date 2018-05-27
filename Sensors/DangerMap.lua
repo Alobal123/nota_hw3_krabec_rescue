@@ -23,7 +23,7 @@ end
 -- @description return list of all positions on a map evaluated by their danger
 return function()
 	local X,Z = Game.mapSizeX , Game.mapSizeZ
-	local areaSize = 20
+	local areaSize = 100
 	X,Z = math.floor(X/areaSize), math.floor(Z/areaSize)
 	local spots = {}
 	
