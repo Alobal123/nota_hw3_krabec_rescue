@@ -19,8 +19,8 @@
 			"height": 72,
 			"title": "nota_hw3_krabec_rescue.MyMove",
 			"width": 283,
-			"x": 483,
-			"y": 54
+			"x": 478,
+			"y": 81
 		},
 		"lFyOhDcujfy0RjmVShZyS9ipLb2OUM3W": {
 			"height": 94,
@@ -29,19 +29,12 @@
 			"x": 485,
 			"y": -139
 		},
-		"nte849uF9nWlBDey26hAYX0HRewL9W5j": {
-			"height": 72,
-			"title": "echo",
-			"width": 131,
-			"x": 504,
-			"y": 144
-		},
 		"rZuwjuchj2BjOxOLDf3j6xGPkysaQYdN": {
 			"height": 94,
 			"title": "store",
 			"width": 443,
-			"x": 485,
-			"y": -41
+			"x": 474,
+			"y": -31
 		},
 		"y20pRcBsuuU5HAS7v3nKuEtpVitjkcS7": {
 			"height": 60,
@@ -98,18 +91,6 @@
 				"value": "nota_hw3_krabec_rescue.MyMove"
 			} ],
 			"scriptName": "nota_hw3_krabec_rescue.MyMove"
-		}, {
-			"children": [],
-			"id": "nte849uF9nWlBDey26hAYX0HRewL9W5j",
-			"nodeType": "luaCommand",
-			"parameters": [ {
-				"name": "msg",
-				"value": "path"
-			}, {
-				"name": "scriptName",
-				"value": "echo"
-			} ],
-			"scriptName": "echo"
 		} ],
 		"id": "y20pRcBsuuU5HAS7v3nKuEtpVitjkcS7",
 		"nodeType": "sequence",

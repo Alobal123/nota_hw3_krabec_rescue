@@ -13,7 +13,9 @@ function getInfo()
 		period = EVAL_PERIOD_DEFAULT 
 	}
 end
-
+function str(vector)
+	return vector["x"]..","..vector["z"]
+end
 
 function euclideanDistance(v1,v2)
 	return math.sqrt((v1["x"] - v2["x"])*(v1["x"] - v2["x"]) + (v1["z"] - v2["z"])*(v1["z"] - v2["z"]))
@@ -32,7 +34,7 @@ return function()
 			x = i*areaSize
 			z = j*areaSize
 			loc = Vec3(x,0,z)
-			spots[loc] = 1
+			spots[str(loc)] = 1
 		end
 	end
 	
@@ -41,9 +43,9 @@ return function()
 		loc = Vec3(Spring.GetUnitPosition(value))
 		x = math.floor(loc["x"]/areaSize)
 		z = math.floor(loc["z"]/areaSize)
-		for i=0,5 do
-			for j =0,5 do
-				spots[Vec3((x+i)*areaSize,0,(z+j)*areaSize)] = 0
+		for i=-8,8 do
+			for j =-8,8 do
+				spots[str(Vec3((x+i)*areaSize,0,(z+j)*areaSize))] = 0
 			end
 		end
 	end
@@ -54,8 +56,8 @@ return function()
 			z = j*areaSize
 			y = Spring.GetGroundHeight(x,z)
 			loc = Vec3(x,0,z)
-			if (y < 200) then
-				spots[loc] = 1
+			if (y < 100) then
+				spots[str(loc)] = 1
 			end
 		end
 	end

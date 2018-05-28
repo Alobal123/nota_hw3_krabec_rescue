@@ -78,22 +78,16 @@ return function(from, to, dangerMap)
 	searching = true
 	q = List.new()
 	visited = {}
-	i = 0
 	start = gridize(from)
 	goal = gridize(to)
-	--q[#q+1] = start
 	List.pushright(q,start)
-	visited[start] = 0
-
+	visited[str(start)] = 0
 	
 	while searching and List.isEmpty(q) do
-		--opened = table.remove(q, 1)
 		opened = List.popleft(q)
 		neighs = getNeighbours(opened)
-		
 		for _,value in pairs(neighs) do
-			if visited[str(value)] == nil then--and dangerMap[value] == 1 then
-				--q[#q+1] = value
+			if visited[str(value)] == nil and dangerMap[str(value)] == 1 then
 				List.pushright(q,value)
 				visited[str(value)] = opened
 				if value == goal then
@@ -107,7 +101,7 @@ return function(from, to, dangerMap)
 		path = {}
 		table.insert(path,1,to)
 		local succ = goal
-		while true and i < 500 do
+		while true do
 			table.insert(path,1,succ)
 			succ = visited[str(succ)]
 			if succ == start then
