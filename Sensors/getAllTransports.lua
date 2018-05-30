@@ -1,6 +1,6 @@
 local sensorInfo = {
-	name = "getRescuableUnits",
-	desc = "Returns table of all rescuable units on the map",
+	name = "getAllTransports",
+	desc = "Returns table of all allied flying transports",
 	author = "Krabec",
 	date = "2018-05-27",
 	license = "notAlicense",
@@ -14,7 +14,7 @@ function getInfo()
 	}
 end
 
--- @description return table of all transportable allied units
+-- @description Returns table of all allied flying transports
 return function()
 
 	local allies = Spring.GetTeamUnits(0)
@@ -22,8 +22,8 @@ return function()
 	local index = 1
 	for _,value in pairs(allies) do
 		defID = Spring.GetUnitDefID(value)
-		if not UnitDefs[defID].cantBeTransported  then
-			rescuable[index] = value
+		if (UnitDefs[defID].transportCapacity > 0 and UnitDefs[defID].canFly) then
+			rescuable[index] = value	
 			index = index + 1
 		end
 	end

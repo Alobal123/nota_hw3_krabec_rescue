@@ -2,8 +2,8 @@
 	"additionalNodes": [],
 	"additionalParameters": {
 		"root": {
-			"height": 128,
-			"width": 216
+			"height": 170,
+			"width": 225
 		}
 	},
 	"inputs": [ {
@@ -12,36 +12,34 @@
 	}, {
 		"command": "BETS_POSITION",
 		"name": "to"
+	}, {
+		"command": "Variable",
+		"name": "dangerMap"
 	} ],
-	"outputs": [],
+	"outputs": [ {
+		"name": "path"
+	} ],
 	"properties": {
-		"IOw7AQEkGHfSAEuTsXsPk7O64drOKDR9": {
-			"height": 72,
-			"title": "nota_hw3_krabec_rescue.MyMove",
-			"width": 283,
-			"x": 478,
-			"y": 81
-		},
 		"lFyOhDcujfy0RjmVShZyS9ipLb2OUM3W": {
 			"height": 94,
 			"title": "store",
 			"width": 337,
-			"x": 485,
-			"y": -139
+			"x": 537,
+			"y": -27
 		},
 		"rZuwjuchj2BjOxOLDf3j6xGPkysaQYdN": {
 			"height": 94,
 			"title": "store",
 			"width": 443,
-			"x": 474,
-			"y": -31
+			"x": 538,
+			"y": 96
 		},
 		"y20pRcBsuuU5HAS7v3nKuEtpVitjkcS7": {
 			"height": 60,
 			"title": "sequence",
 			"width": 143,
-			"x": 215,
-			"y": 10
+			"x": 286,
+			"y": 50
 		}
 	},
 	"roles": [ {
@@ -79,18 +77,6 @@
 				"value": "store"
 			} ],
 			"scriptName": "store"
-		}, {
-			"children": [],
-			"id": "IOw7AQEkGHfSAEuTsXsPk7O64drOKDR9",
-			"nodeType": "luaCommand",
-			"parameters": [ {
-				"name": "path",
-				"value": "path"
-			}, {
-				"name": "scriptName",
-				"value": "nota_hw3_krabec_rescue.MyMove"
-			} ],
-			"scriptName": "nota_hw3_krabec_rescue.MyMove"
 		} ],
 		"id": "y20pRcBsuuU5HAS7v3nKuEtpVitjkcS7",
 		"nodeType": "sequence",
