@@ -23,9 +23,9 @@ end
 
 
 -- @description return list of all positions on a map evaluated by their danger
-return function()
+return function(radius)
 	local X,Z = Game.mapSizeX , Game.mapSizeZ
-	local areaSize = 100
+	local areaSize = 95
 	X,Z = math.floor(X/areaSize), math.floor(Z/areaSize)
 	local spots = {}
 	
@@ -43,8 +43,8 @@ return function()
 		loc = Vec3(Spring.GetUnitPosition(value))
 		x = math.floor(loc["x"]/areaSize)
 		z = math.floor(loc["z"]/areaSize)
-		for i=-8,8 do
-			for j =-8,8 do
+		for i=-radius,radius do
+			for j =-radius,radius do
 				spots[str(Vec3((x+i)*areaSize,0,(z+j)*areaSize))] = 0
 			end
 		end
@@ -56,7 +56,7 @@ return function()
 			z = j*areaSize
 			y = Spring.GetGroundHeight(x,z)
 			loc = Vec3(x,0,z)
-			if (y < 100) then
+			if (y < 200) then
 				spots[str(loc)] = 1
 			end
 		end

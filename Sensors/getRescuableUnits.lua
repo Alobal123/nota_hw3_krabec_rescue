@@ -6,7 +6,7 @@ local sensorInfo = {
 	license = "notAlicense",
 }
 
-local EVAL_PERIOD_DEFAULT = 10000
+local EVAL_PERIOD_DEFAULT = 0
 
 function getInfo()
 	return {

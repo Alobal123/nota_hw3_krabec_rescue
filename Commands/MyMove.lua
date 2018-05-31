@@ -5,12 +5,31 @@ function getInfo()
 		onNoUnits = SUCCESS, -- instant success
 		tooltip = "Move to defined position",
 		parameterDefs = {
-			{ 
-				name = "path",
+			{
+				name = "paths",
 				variableType = "expression",
 				componentType = "editBox",
 				defaultValue = "",
 			},
+			{
+				name = "transports",
+				variableType = "expression",
+				componentType = "editBox",
+				defaultValue = "",
+			},
+			{
+				name = "rescueable",
+				variableType = "expression",
+				componentType = "editBox",
+				defaultValue = "",
+			},
+			{
+				name = "safePlace",
+				variableType = "expression",
+				componentType = "editBox",
+				defaultValue = "",
+			},
+			
 		}
 	}
 end
@@ -20,36 +39,52 @@ function euclideanDistance(v1,v2)
 end
 
 running = false
-
--- speed-ups
-local SpringGiveOrderToUnit = Spring.GiveOrderToUnit
-local SpringGetUnitPosition = Spring.GetUnitPosition
+firsttarget = false
 
 function Run(self, units, parameter)
-	local path = parameter.path
-	-- pick the spring command implementing the move
+	local paths = parameter.paths
+	local transports = parameter.transports
+	local rescueable = parameter.rescueable
+	local safePlace = parameter.safePlace
+	
+	if paths == nill then return FAILURE end
 	if (not running) then 
-		local cmdID = CMD.MOVE
 		running = true
-		for i=1, #units do
-			for j= 1,#path do
-				local x,z = (path[j])["x"],(path[j])["z"]
-				local thisUnitWantedPosition = Vec3(x,Spring.GetGroundHeight(x,z),z)
-				SpringGiveOrderToUnit(units[i], cmdID, thisUnitWantedPosition:AsSpringVector(), {"shift"})
+		for i=1,20 do --#transports do
+			local path = paths[i]
+			if path~= nil then
+				local transport = transports[i]
+				local cmdID = CMD.MOVE
+				for j= 1, #path do
+					local x,z = (path[j])["x"],(path[j])["z"]
+					Spring.GiveOrderToUnit(transport, cmdID, Vec3(x,0,z):AsSpringVector(), {"shift"})
+				end
+				Spring.GiveOrderToUnit(transport, CMD.LOAD_UNITS,{rescueable[i]},{"shift"})
+				for j= #path,1,-1 do
+					local x,z = (path[j])["x"]+20,(path[j])["z"]+20
+					Spring.GiveOrderToUnit(transport, cmdID, Vec3(x,0,z):AsSpringVector(), {"shift"})
+				end
+				x,y,z = safePlace["x"],safePlace["y"],safePlace["y"]
+				Spring.GiveOrderToUnit(transport, CMD.UNLOAD_UNITS,{x,y,z,250},{"shift"})
 			end
 		end
 	end
-	position = path[#path]
-	-- We return success once each unit is close enough to the target location
-	for i=1,#units do
-		local x,y,z = SpringGetUnitPosition(units[i])
-		if (euclideanDistance(Vec3(x,y,z),position) > 100) then
-			return RUNNING
-		end
-	end
-	return SUCCESS
-end
 
+	--local path = paths[1]
+	local unit = transports[1]
+	--local position = path[#path]
+	-- We return success once each unit is close enough to the target location
+
+	--if (euclideanDistance(Vec3(SpringGetUnitPosition(unit)),position) < 100) then
+		--firsttarget = true
+	--end
+	--position = path[1]
+	--if (firsttarget and euclideanDistance(Vec3(SpringGetUnitPosition(unit)),position) < 100) then
+	--	return SUCCESS
+	--end
+	return RUNNING
+
+end
 
 function Reset(self)
 	running = false

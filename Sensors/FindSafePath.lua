@@ -32,7 +32,7 @@ local sensorInfo = {
 	license = "notAlicense",
 }
 
-local EVAL_PERIOD_DEFAULT = 10000
+local EVAL_PERIOD_DEFAULT = -1
 
 function getInfo()
 	return {
@@ -40,7 +40,7 @@ function getInfo()
 	}
 end
 
-areaSize = 100
+areaSize = 95
 X,Z = Game.mapSizeX , Game.mapSizeZ
 function isOnMap(loc)
 	return loc['x'] > 0 and loc['x']<= X and loc['z'] > 0 and loc['z']<= Z
@@ -72,14 +72,12 @@ function gridize(vector)
 	return Vec3(math.floor(vector["x"]/areaSize)*areaSize, 0, math.floor(vector["z"]/areaSize)*areaSize)
 end
 
-
--- @description return list of all positions on a map evaluated by their danger
-return function(from, to, dangerMap)
-	searching = true
-	q = List.new()
-	visited = {}
-	start = gridize(from)
-	goal = gridize(to)
+function dfs(from, to, dangerMap)
+	local searching = true
+	local q = List.new()
+	local visited = {}
+	local start = gridize(from)
+	local goal = gridize(to)
 	List.pushright(q,start)
 	visited[str(start)] = 0
 	
@@ -98,7 +96,7 @@ return function(from, to, dangerMap)
 	end
 	
 	if not searching then
-		path = {}
+		local path = {}
 		table.insert(path,1,to)
 		local succ = goal
 		while true do
@@ -112,6 +110,13 @@ return function(from, to, dangerMap)
 		return path
 	end
 	return nil
+end
 
-	
+-- @description return list of all positions on a map evaluated by their danger
+return function(transports,rescuable,dangerMap)
+	local paths = {}
+	for i=1,20 do--#transports do
+		paths[i] = dfs(Vec3(Spring.GetUnitPosition(transports[i])),Vec3(Spring.GetUnitPosition(rescuable[i])),dangerMap)
+	end
+	return paths
 end
