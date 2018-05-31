@@ -12,12 +12,6 @@ function getInfo()
 				defaultValue = "",
 			},
 			{
-				name = "transports",
-				variableType = "expression",
-				componentType = "editBox",
-				defaultValue = "",
-			},
-			{
 				name = "rescueable",
 				variableType = "expression",
 				componentType = "editBox",
@@ -43,7 +37,7 @@ firsttarget = false
 
 function Run(self, units, parameter)
 	local paths = parameter.paths
-	local transports = parameter.transports
+	local transports = units
 	local rescueable = parameter.rescueable
 	local safePlace = parameter.safePlace
 	
@@ -71,7 +65,7 @@ function Run(self, units, parameter)
 	end
 
 	--local path = paths[1]
-	local unit = transports[1]
+	--local unit = transports[1]
 	--local position = path[#path]
 	-- We return success once each unit is close enough to the target location
 

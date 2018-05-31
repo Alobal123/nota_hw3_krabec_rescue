@@ -23,7 +23,7 @@ end
 -- @description ends the mission
 return function()
     message.SendRules({
-        subject = "CTP_playerTriggeredGameEnd",
+        subject = "manualMissionEnd",
         data = {},
     })
 end

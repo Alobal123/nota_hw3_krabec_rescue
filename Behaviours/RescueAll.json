@@ -1,5 +1,13 @@
 {
-	"additionalNodes": [],
+	"additionalNodes": [ {
+		"children": [],
+		"id": "SIqhpnpWypkVnLpsQ7puRUYLJ40MUb6C",
+		"nodeType": "wait",
+		"parameters": [ {
+			"name": "time",
+			"value": 10
+		} ]
+	} ],
 	"additionalParameters": {
 		"root": {
 			"height": 108,
@@ -16,55 +24,90 @@
 			"height": 94,
 			"title": "store",
 			"width": 527,
-			"x": 464,
-			"y": 163
+			"x": 580,
+			"y": 162
 		},
-		"8L2bSSHUfCVqc6cw3wFP3mToFX2oqELt": {
+		"MEbn8jPIgKggTsLn2WLGmNXZmvMS0hn2": {
+			"height": 60,
+			"title": "repeat",
+			"width": 131,
+			"x": 826,
+			"y": 403
+		},
+		"NpqdKHNjNtyWCg91npzbGQVRA2MKdgB9": {
 			"height": 94,
 			"title": "store",
-			"width": 367,
-			"x": 467,
-			"y": 1
+			"width": 198,
+			"x": 1080,
+			"y": 403
 		},
-		"QZRJX6KxX4SHNoFziABr46OTMT5WLCZO": {
+		"PpLMZHPqLEZ6weQd1ZSfakTnEhMpSxwC": {
+			"height": 70,
+			"title": "parallel",
+			"width": 202,
+			"x": 592,
+			"y": 272
+		},
+		"SIqhpnpWypkVnLpsQ7puRUYLJ40MUb6C": {
 			"height": 72,
-			"title": "echo",
+			"title": "wait",
 			"width": 131,
-			"x": 469,
-			"y": 263
+			"x": 1338,
+			"y": 585
 		},
 		"i4AI9qe9tC9aoZuaLn6rLuBZeUpIwJeX": {
 			"height": 94,
 			"title": "store",
 			"width": 381,
-			"x": 464,
-			"y": -105
+			"x": 594,
+			"y": -81
+		},
+		"jYtkXhVSGD1JNUqzJNB0eUv6Io5wgzj0": {
+			"height": 94,
+			"title": "store",
+			"width": 335,
+			"x": 1343,
+			"y": 463
+		},
+		"mLKctEIttHGmkrx9rWgydcbCcY9yLvPJ": {
+			"height": 112,
+			"title": "nota_hw3_krabec_rescue.MyMove",
+			"width": 283,
+			"x": 841,
+			"y": 267
 		},
 		"peU3ybTIuBWLJSFlt5eizPUfFrywbw6E": {
 			"height": 94,
 			"title": "store",
 			"width": 381,
-			"x": 463,
-			"y": 76
+			"x": 585,
+			"y": 45
 		},
 		"xfOPM2WwgM5NsFuf2MSQUd95CW6T3JrA": {
 			"height": 60,
 			"title": "sequence",
 			"width": 143,
-			"x": 259,
-			"y": 17
+			"x": 307,
+			"y": 14
 		},
-		"zU4tXMNI48NgXwPGJov3XmHMF3ZyaMZi": {
-			"height": 132,
-			"title": "nota_hw3_krabec_rescue.MyMove",
-			"width": 283,
-			"x": 460,
-			"y": 340
+		"yWNHzI36XENUC1IU0IT7RHud3Tmqga7N": {
+			"height": 60,
+			"title": "sequence",
+			"width": 143,
+			"x": 926,
+			"y": 485
+		},
+		"zV9KixXqLgGNlpCNqSoWtAQyDfJ5QNDb": {
+			"height": 90,
+			"title": "luaCondition",
+			"width": 194,
+			"x": 1082,
+			"y": 525
 		}
 	},
 	"roles": [ {
-		"categories": [],
-		"name": "Role 0"
+		"categories": [ "nota_hw3_krabec_rescue.atlas" ],
+		"name": "Role 1"
 	} ],
 	"root": {
 		"children": [ {
@@ -84,26 +127,11 @@
 			"scriptName": "store"
 		}, {
 			"children": [],
-			"id": "8L2bSSHUfCVqc6cw3wFP3mToFX2oqELt",
-			"nodeType": "luaCommand",
-			"parameters": [ {
-				"name": "var",
-				"value": "transports"
-			}, {
-				"name": "value",
-				"value": "nota_hw3_krabec_rescue.getAllTransports()"
-			}, {
-				"name": "scriptName",
-				"value": "store"
-			} ],
-			"scriptName": "store"
-		}, {
-			"children": [],
 			"id": "peU3ybTIuBWLJSFlt5eizPUfFrywbw6E",
 			"nodeType": "luaCommand",
 			"parameters": [ {
 				"name": "var",
-				"value": "rescuable"
+				"value": "rescueable"
 			}, {
 				"name": "value",
 				"value": "nota_hw3_krabec_rescue.getRescuableUnits()"
@@ -121,45 +149,89 @@
 				"value": "paths"
 			}, {
 				"name": "value",
-				"value": "nota_hw3_krabec_rescue.FindSafePath(transports,rescuable,danger)"
+				"value": "nota_hw3_krabec_rescue.FindSafePath(units,rescueable,danger)"
 			}, {
 				"name": "scriptName",
 				"value": "store"
 			} ],
 			"scriptName": "store"
 		}, {
-			"children": [],
-			"id": "QZRJX6KxX4SHNoFziABr46OTMT5WLCZO",
-			"nodeType": "luaCommand",
-			"parameters": [ {
-				"name": "msg",
-				"value": "paths"
+			"children": [ {
+				"children": [],
+				"id": "mLKctEIttHGmkrx9rWgydcbCcY9yLvPJ",
+				"nodeType": "luaCommand",
+				"parameters": [ {
+					"name": "paths",
+					"value": "paths"
+				}, {
+					"name": "rescueable",
+					"value": "rescueable"
+				}, {
+					"name": "safePlace",
+					"value": "safePlace"
+				}, {
+					"name": "scriptName",
+					"value": "nota_hw3_krabec_rescue.MyMove"
+				} ],
+				"scriptName": "nota_hw3_krabec_rescue.MyMove"
 			}, {
-				"name": "scriptName",
-				"value": "echo"
+				"children": [ {
+					"children": [ {
+						"children": [],
+						"id": "NpqdKHNjNtyWCg91npzbGQVRA2MKdgB9",
+						"nodeType": "luaCommand",
+						"parameters": [ {
+							"name": "var",
+							"value": "info"
+						}, {
+							"name": "value",
+							"value": "core.MissionInfo()"
+						}, {
+							"name": "scriptName",
+							"value": "store"
+						} ],
+						"scriptName": "store"
+					}, {
+						"children": [ {
+							"children": [],
+							"id": "jYtkXhVSGD1JNUqzJNB0eUv6Io5wgzj0",
+							"nodeType": "luaCommand",
+							"parameters": [ {
+								"name": "var",
+								"value": "_"
+							}, {
+								"name": "value",
+								"value": "nota_hw3_krabec_rescue.missionEnd()"
+							}, {
+								"name": "scriptName",
+								"value": "store"
+							} ],
+							"scriptName": "store"
+						} ],
+						"id": "zV9KixXqLgGNlpCNqSoWtAQyDfJ5QNDb",
+						"nodeType": "luaCondition",
+						"parameters": [ {
+							"name": "expression",
+							"value": "info[\"score\"] > 100"
+						}, {
+							"name": "repeat",
+							"value": "true"
+						} ]
+					} ],
+					"id": "yWNHzI36XENUC1IU0IT7RHud3Tmqga7N",
+					"nodeType": "sequence",
+					"parameters": []
+				} ],
+				"id": "MEbn8jPIgKggTsLn2WLGmNXZmvMS0hn2",
+				"nodeType": "repeat",
+				"parameters": []
 			} ],
-			"scriptName": "echo"
-		}, {
-			"children": [],
-			"id": "zU4tXMNI48NgXwPGJov3XmHMF3ZyaMZi",
-			"nodeType": "luaCommand",
+			"id": "PpLMZHPqLEZ6weQd1ZSfakTnEhMpSxwC",
+			"nodeType": "parallel",
 			"parameters": [ {
-				"name": "paths",
-				"value": "paths"
-			}, {
-				"name": "transports",
-				"value": "transports"
-			}, {
-				"name": "rescueable",
-				"value": "rescuable"
-			}, {
-				"name": "safePlace",
-				"value": "safePlace"
-			}, {
-				"name": "scriptName",
-				"value": "nota_hw3_krabec_rescue.MyMove"
-			} ],
-			"scriptName": "nota_hw3_krabec_rescue.MyMove"
+				"name": "mode",
+				"value": "all-success"
+			} ]
 		} ],
 		"id": "xfOPM2WwgM5NsFuf2MSQUd95CW6T3JrA",
 		"nodeType": "sequence",
