@@ -79,7 +79,7 @@
 		"peU3ybTIuBWLJSFlt5eizPUfFrywbw6E": {
 			"height": 94,
 			"title": "store",
-			"width": 381,
+			"width": 443,
 			"x": 585,
 			"y": 45
 		},
@@ -119,7 +119,7 @@
 				"value": "danger"
 			}, {
 				"name": "value",
-				"value": "nota_hw3_krabec_rescue.DangerMap(10)"
+				"value": "nota_hw3_krabec_rescue.DangerMap(8)"
 			}, {
 				"name": "scriptName",
 				"value": "store"
@@ -134,7 +134,7 @@
 				"value": "rescueable"
 			}, {
 				"name": "value",
-				"value": "nota_hw3_krabec_rescue.getRescuableUnits()"
+				"value": "nota_hw3_krabec_rescue.getRescuableUnits(safePlace)"
 			}, {
 				"name": "scriptName",
 				"value": "store"

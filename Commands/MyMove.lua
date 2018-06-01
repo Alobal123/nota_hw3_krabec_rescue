@@ -55,7 +55,7 @@ function Run(self, units, parameter)
 				end
 				Spring.GiveOrderToUnit(transport, CMD.LOAD_UNITS,{rescueable[i]},{"shift"})
 				for j= #path,1,-1 do
-					local x,z = (path[j])["x"]+20,(path[j])["z"]+20
+					local x,z = (path[j])["x"]+15,(path[j])["z"]+15
 					Spring.GiveOrderToUnit(transport, cmdID, Vec3(x,0,z):AsSpringVector(), {"shift"})
 				end
 				x,y,z = safePlace["x"],safePlace["y"],safePlace["y"]

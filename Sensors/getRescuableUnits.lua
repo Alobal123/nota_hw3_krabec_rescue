@@ -15,7 +15,7 @@ function getInfo()
 end
 
 -- @description return table of all transportable allied units
-return function()
+return function(safePlace)
 
 	local allies = Spring.GetTeamUnits(0)
 	local rescuable = {}
@@ -23,8 +23,10 @@ return function()
 	for _,value in pairs(allies) do
 		defID = Spring.GetUnitDefID(value)
 		if not UnitDefs[defID].cantBeTransported  then
-			rescuable[index] = value
-			index = index + 1
+			if Vec3(Spring.GetUnitPosition(value)):Distance(safePlace) > 500 then
+				rescuable[index] = value
+				index = index + 1
+			end
 		end
 	end
 

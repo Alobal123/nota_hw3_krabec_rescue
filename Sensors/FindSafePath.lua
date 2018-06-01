@@ -22,7 +22,11 @@ function List.isEmpty(list)
 	return not (list.first > list.last)
 end
 
-
+function reverse(tbl)
+  for i=1, math.floor(#tbl / 2) do
+    tbl[i], tbl[#tbl - i + 1] = tbl[#tbl - i + 1], tbl[i]
+  end
+end
 
 local sensorInfo = {
 	name = "FindSafePath",
@@ -40,10 +44,10 @@ function getInfo()
 	}
 end
 
-areaSize = 95
+areaSize = 120
 X,Z = Game.mapSizeX , Game.mapSizeZ
 function isOnMap(loc)
-	return loc['x'] > 0 and loc['x']<= X and loc['z'] > 0 and loc['z']<= Z
+	return loc['x'] >= 0 and loc['x']<= X and loc['z'] >= 0 and loc['z']<= Z
 end
 
 
@@ -95,18 +99,24 @@ function dfs(from, to, dangerMap)
 		end
 	end
 	
+	
+	
+	index = 1
 	if not searching then
 		local path = {}
-		table.insert(path,1,to)
+		path[index] = to
 		local succ = goal
 		while true do
-			table.insert(path,1,succ)
+			index = index+1
+			path[index] = succ
 			succ = visited[str(succ)]
 			if succ == start then
 				break
 			end
 		end
-		table.insert(path,1,start)
+		index = index+1
+		path[index] = start
+		reverse(path)
 		return path
 	end
 	return nil
@@ -115,7 +125,9 @@ end
 -- @description return list of all positions on a map evaluated by their danger
 return function(transports,rescuable,dangerMap)
 	local paths = {}
-	for i=1,20 do--#transports do
+	local number = #transports
+	if #rescuable<number then number=#rescuable end
+	for i=1,number do
 		paths[i] = dfs(Vec3(Spring.GetUnitPosition(transports[i])),Vec3(Spring.GetUnitPosition(rescuable[i])),dangerMap)
 	end
 	return paths
