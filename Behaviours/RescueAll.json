@@ -1,13 +1,5 @@
 {
-	"additionalNodes": [ {
-		"children": [],
-		"id": "SIqhpnpWypkVnLpsQ7puRUYLJ40MUb6C",
-		"nodeType": "wait",
-		"parameters": [ {
-			"name": "time",
-			"value": 10
-		} ]
-	} ],
+	"additionalNodes": [],
 	"additionalParameters": {
 		"root": {
 			"height": 108,
@@ -20,40 +12,26 @@
 	} ],
 	"outputs": [],
 	"properties": {
-		"0sdH2EqhMOeJPLM64RhsEojfeI3FEJyS": {
-			"height": 94,
-			"title": "store",
-			"width": 527,
-			"x": 580,
-			"y": 162
-		},
-		"MEbn8jPIgKggTsLn2WLGmNXZmvMS0hn2": {
-			"height": 60,
-			"title": "repeat",
-			"width": 131,
-			"x": 826,
-			"y": 403
-		},
-		"NpqdKHNjNtyWCg91npzbGQVRA2MKdgB9": {
-			"height": 94,
-			"title": "store",
-			"width": 198,
-			"x": 1080,
-			"y": 403
+		"PZ42fsfvNoXk0WN6wJULVeDMTGabN5fU": {
+			"height": 112,
+			"title": "nota_hw3_krabec_rescue.MyMove",
+			"width": 283,
+			"x": 811,
+			"y": 205
 		},
 		"PpLMZHPqLEZ6weQd1ZSfakTnEhMpSxwC": {
 			"height": 70,
 			"title": "parallel",
 			"width": 202,
-			"x": 592,
-			"y": 272
+			"x": 530,
+			"y": 232
 		},
-		"SIqhpnpWypkVnLpsQ7puRUYLJ40MUb6C": {
-			"height": 72,
-			"title": "wait",
-			"width": 131,
-			"x": 1338,
-			"y": 585
+		"UyR7tGSmLjTkhBX4fuTzrP5uhNg0e8bK": {
+			"height": 130,
+			"title": "reference",
+			"width": 307,
+			"x": 951,
+			"y": 332
 		},
 		"i4AI9qe9tC9aoZuaLn6rLuBZeUpIwJeX": {
 			"height": 94,
@@ -61,20 +39,6 @@
 			"width": 381,
 			"x": 594,
 			"y": -81
-		},
-		"jYtkXhVSGD1JNUqzJNB0eUv6Io5wgzj0": {
-			"height": 94,
-			"title": "store",
-			"width": 335,
-			"x": 1343,
-			"y": 463
-		},
-		"mLKctEIttHGmkrx9rWgydcbCcY9yLvPJ": {
-			"height": 112,
-			"title": "nota_hw3_krabec_rescue.MyMove",
-			"width": 283,
-			"x": 841,
-			"y": 267
 		},
 		"peU3ybTIuBWLJSFlt5eizPUfFrywbw6E": {
 			"height": 94,
@@ -90,19 +54,12 @@
 			"x": 307,
 			"y": 14
 		},
-		"yWNHzI36XENUC1IU0IT7RHud3Tmqga7N": {
-			"height": 60,
-			"title": "sequence",
-			"width": 143,
-			"x": 926,
-			"y": 485
-		},
-		"zV9KixXqLgGNlpCNqSoWtAQyDfJ5QNDb": {
-			"height": 90,
-			"title": "luaCondition",
-			"width": 194,
-			"x": 1082,
-			"y": 525
+		"ygr2d8tbreBuwOZePCj5AF1Bdg8LVmnN": {
+			"height": 54,
+			"title": "repeat",
+			"width": 158,
+			"x": 781,
+			"y": 356
 		}
 	},
 	"roles": [ {
@@ -119,7 +76,7 @@
 				"value": "danger"
 			}, {
 				"name": "value",
-				"value": "nota_hw3_krabec_rescue.DangerMap(8)"
+				"value": "nota_hw3_krabec_rescue.DangerMap(9)"
 			}, {
 				"name": "scriptName",
 				"value": "store"
@@ -141,34 +98,19 @@
 			} ],
 			"scriptName": "store"
 		}, {
-			"children": [],
-			"id": "0sdH2EqhMOeJPLM64RhsEojfeI3FEJyS",
-			"nodeType": "luaCommand",
-			"parameters": [ {
-				"name": "var",
-				"value": "paths"
-			}, {
-				"name": "value",
-				"value": "nota_hw3_krabec_rescue.FindSafePath(units,rescueable,danger)"
-			}, {
-				"name": "scriptName",
-				"value": "store"
-			} ],
-			"scriptName": "store"
-		}, {
 			"children": [ {
 				"children": [],
-				"id": "mLKctEIttHGmkrx9rWgydcbCcY9yLvPJ",
+				"id": "PZ42fsfvNoXk0WN6wJULVeDMTGabN5fU",
 				"nodeType": "luaCommand",
 				"parameters": [ {
-					"name": "paths",
-					"value": "paths"
-				}, {
 					"name": "rescueable",
 					"value": "rescueable"
 				}, {
 					"name": "safePlace",
 					"value": "safePlace"
+				}, {
+					"name": "danger",
+					"value": "danger"
 				}, {
 					"name": "scriptName",
 					"value": "nota_hw3_krabec_rescue.MyMove"
@@ -176,53 +118,20 @@
 				"scriptName": "nota_hw3_krabec_rescue.MyMove"
 			}, {
 				"children": [ {
-					"children": [ {
-						"children": [],
-						"id": "NpqdKHNjNtyWCg91npzbGQVRA2MKdgB9",
-						"nodeType": "luaCommand",
-						"parameters": [ {
-							"name": "var",
-							"value": "info"
-						}, {
-							"name": "value",
-							"value": "core.MissionInfo()"
-						}, {
-							"name": "scriptName",
-							"value": "store"
-						} ],
-						"scriptName": "store"
-					}, {
-						"children": [ {
-							"children": [],
-							"id": "jYtkXhVSGD1JNUqzJNB0eUv6Io5wgzj0",
-							"nodeType": "luaCommand",
-							"parameters": [ {
-								"name": "var",
-								"value": "_"
-							}, {
-								"name": "value",
-								"value": "nota_hw3_krabec_rescue.missionEnd()"
-							}, {
-								"name": "scriptName",
-								"value": "store"
-							} ],
-							"scriptName": "store"
-						} ],
-						"id": "zV9KixXqLgGNlpCNqSoWtAQyDfJ5QNDb",
-						"nodeType": "luaCondition",
-						"parameters": [ {
-							"name": "expression",
-							"value": "info[\"score\"] > 100"
-						}, {
-							"name": "repeat",
-							"value": "true"
-						} ]
+					"children": [],
+					"id": "UyR7tGSmLjTkhBX4fuTzrP5uhNg0e8bK",
+					"nodeType": "reference",
+					"parameters": [ {
+						"name": "behaviourName",
+						"value": "nota_hw3_krabec_rescue.checkEnd"
 					} ],
-					"id": "yWNHzI36XENUC1IU0IT7RHud3Tmqga7N",
-					"nodeType": "sequence",
-					"parameters": []
+					"referenceInputs": [ {
+						"name": "score",
+						"value": "99"
+					} ],
+					"referenceOutputs": []
 				} ],
-				"id": "MEbn8jPIgKggTsLn2WLGmNXZmvMS0hn2",
+				"id": "ygr2d8tbreBuwOZePCj5AF1Bdg8LVmnN",
 				"nodeType": "repeat",
 				"parameters": []
 			} ],

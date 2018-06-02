@@ -16,7 +16,7 @@ end
 
 -- @description return table of all transportable allied units
 return function(safePlace)
-
+	
 	local allies = Spring.GetTeamUnits(0)
 	local rescuable = {}
 	local index = 1

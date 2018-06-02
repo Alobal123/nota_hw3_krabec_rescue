@@ -36,6 +36,7 @@ local sensorInfo = {
 	license = "notAlicense",
 }
 
+
 local EVAL_PERIOD_DEFAULT = -1
 
 function getInfo()
@@ -44,7 +45,7 @@ function getInfo()
 	}
 end
 
-areaSize = 120
+areaSize = 100
 X,Z = Game.mapSizeX , Game.mapSizeZ
 function isOnMap(loc)
 	return loc['x'] >= 0 and loc['x']<= X and loc['z'] >= 0 and loc['z']<= Z
@@ -123,12 +124,11 @@ function dfs(from, to, dangerMap)
 end
 
 -- @description return list of all positions on a map evaluated by their danger
-return function(transports,rescuable,dangerMap)
-	local paths = {}
-	local number = #transports
-	if #rescuable<number then number=#rescuable end
-	for i=1,number do
-		paths[i] = dfs(Vec3(Spring.GetUnitPosition(transports[i])),Vec3(Spring.GetUnitPosition(rescuable[i])),dangerMap)
-	end
-	return paths
+return function(transports,rescuable,dangerMap, i, j)
+
+	if #rescuable<i or #transports<j then return nil end
+	
+	local path = dfs(Vec3(Spring.GetUnitPosition(transports[i])),Vec3(Spring.GetUnitPosition(rescuable[j])),dangerMap)
+	
+	return path
 end
