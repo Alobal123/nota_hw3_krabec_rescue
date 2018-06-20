@@ -1,5 +1,61 @@
 {
-	"additionalNodes": [],
+	"additionalNodes": [ {
+		"children": [ {
+			"children": [],
+			"id": "UyR7tGSmLjTkhBX4fuTzrP5uhNg0e8bK",
+			"nodeType": "reference",
+			"parameters": [ {
+				"name": "behaviourName",
+				"value": "nota_hw3_krabec_rescue.checkEnd"
+			} ],
+			"referenceInputs": [ {
+				"name": "score",
+				"value": "99"
+			} ],
+			"referenceOutputs": []
+		} ],
+		"id": "ygr2d8tbreBuwOZePCj5AF1Bdg8LVmnN",
+		"nodeType": "repeat",
+		"parameters": []
+	}, {
+		"children": [],
+		"id": "qIrJWhiy2NFYAK5UGGWn5ngPifrG3yVB",
+		"nodeType": "reference",
+		"parameters": [ {
+			"name": "behaviourName",
+			"value": "nota_hw3_krabec_rescue.rescueNext"
+		} ],
+		"referenceInputs": [ {
+			"name": "toRescue",
+			"value": "rescueable[3]"
+		}, {
+			"name": "safePlace",
+			"value": "safePlace"
+		}, {
+			"name": "danger",
+			"value": "danger"
+		} ],
+		"referenceOutputs": []
+	}, {
+		"children": [],
+		"id": "UdQR65shTNuQ3jtRnwo4YxddjAOiT9oA",
+		"nodeType": "reference",
+		"parameters": [ {
+			"name": "behaviourName",
+			"value": "nota_hw3_krabec_rescue.rescueNext"
+		} ],
+		"referenceInputs": [ {
+			"name": "toRescue",
+			"value": "rescueable[2]"
+		}, {
+			"name": "safePlace",
+			"value": "safePlace"
+		}, {
+			"name": "danger",
+			"value": "danger"
+		} ],
+		"referenceOutputs": []
+	} ],
 	"additionalParameters": {
 		"root": {
 			"height": 108,
@@ -12,54 +68,68 @@
 	} ],
 	"outputs": [],
 	"properties": {
-		"PZ42fsfvNoXk0WN6wJULVeDMTGabN5fU": {
-			"height": 112,
-			"title": "nota_hw3_krabec_rescue.MyMove",
-			"width": 283,
-			"x": 811,
-			"y": 205
-		},
-		"PpLMZHPqLEZ6weQd1ZSfakTnEhMpSxwC": {
+		"MRkqmlb8RD24olIoclrqFHzEaxUXKIZI": {
 			"height": 70,
 			"title": "parallel",
 			"width": 202,
-			"x": 530,
-			"y": 232
+			"x": 549,
+			"y": 115
+		},
+		"UdQR65shTNuQ3jtRnwo4YxddjAOiT9oA": {
+			"height": 193,
+			"title": "reference",
+			"width": 317,
+			"x": 980,
+			"y": 209
 		},
 		"UyR7tGSmLjTkhBX4fuTzrP5uhNg0e8bK": {
 			"height": 130,
 			"title": "reference",
 			"width": 307,
-			"x": 951,
-			"y": 332
+			"x": 973,
+			"y": 595
 		},
 		"i4AI9qe9tC9aoZuaLn6rLuBZeUpIwJeX": {
 			"height": 94,
 			"title": "store",
 			"width": 381,
-			"x": 594,
-			"y": -81
+			"x": 432,
+			"y": -106
+		},
+		"jgF75J7y95nTy8KriIsMeW3gTX6u2bN5": {
+			"height": 193,
+			"title": "reference",
+			"width": 317,
+			"x": 966,
+			"y": 24
 		},
 		"peU3ybTIuBWLJSFlt5eizPUfFrywbw6E": {
 			"height": 94,
 			"title": "store",
 			"width": 443,
-			"x": 585,
-			"y": 45
+			"x": 432,
+			"y": -8
+		},
+		"qIrJWhiy2NFYAK5UGGWn5ngPifrG3yVB": {
+			"height": 193,
+			"title": "reference",
+			"width": 317,
+			"x": 975,
+			"y": 405
 		},
 		"xfOPM2WwgM5NsFuf2MSQUd95CW6T3JrA": {
 			"height": 60,
 			"title": "sequence",
 			"width": 143,
-			"x": 307,
-			"y": 14
+			"x": 250,
+			"y": -57
 		},
 		"ygr2d8tbreBuwOZePCj5AF1Bdg8LVmnN": {
 			"height": 54,
 			"title": "repeat",
 			"width": 158,
-			"x": 781,
-			"y": 356
+			"x": 740,
+			"y": 568
 		}
 	},
 	"roles": [ {
@@ -100,42 +170,25 @@
 		}, {
 			"children": [ {
 				"children": [],
-				"id": "PZ42fsfvNoXk0WN6wJULVeDMTGabN5fU",
-				"nodeType": "luaCommand",
+				"id": "jgF75J7y95nTy8KriIsMeW3gTX6u2bN5",
+				"nodeType": "reference",
 				"parameters": [ {
-					"name": "rescueable",
-					"value": "rescueable"
+					"name": "behaviourName",
+					"value": "nota_hw3_krabec_rescue.rescueNext"
+				} ],
+				"referenceInputs": [ {
+					"name": "toRescue",
+					"value": "rescueable[1]"
 				}, {
 					"name": "safePlace",
 					"value": "safePlace"
 				}, {
 					"name": "danger",
 					"value": "danger"
-				}, {
-					"name": "scriptName",
-					"value": "nota_hw3_krabec_rescue.MyMove"
 				} ],
-				"scriptName": "nota_hw3_krabec_rescue.MyMove"
-			}, {
-				"children": [ {
-					"children": [],
-					"id": "UyR7tGSmLjTkhBX4fuTzrP5uhNg0e8bK",
-					"nodeType": "reference",
-					"parameters": [ {
-						"name": "behaviourName",
-						"value": "nota_hw3_krabec_rescue.checkEnd"
-					} ],
-					"referenceInputs": [ {
-						"name": "score",
-						"value": "99"
-					} ],
-					"referenceOutputs": []
-				} ],
-				"id": "ygr2d8tbreBuwOZePCj5AF1Bdg8LVmnN",
-				"nodeType": "repeat",
-				"parameters": []
+				"referenceOutputs": []
 			} ],
-			"id": "PpLMZHPqLEZ6weQd1ZSfakTnEhMpSxwC",
+			"id": "MRkqmlb8RD24olIoclrqFHzEaxUXKIZI",
 			"nodeType": "parallel",
 			"parameters": [ {
 				"name": "mode",

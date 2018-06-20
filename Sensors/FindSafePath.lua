@@ -37,7 +37,7 @@ local sensorInfo = {
 }
 
 
-local EVAL_PERIOD_DEFAULT = -1
+local EVAL_PERIOD_DEFAULT = 100
 
 function getInfo()
 	return {
@@ -124,11 +124,10 @@ function dfs(from, to, dangerMap)
 end
 
 -- @description return list of all positions on a map evaluated by their danger
-return function(transports,rescuable,dangerMap, i, j)
-
-	if #rescuable<i or #transports<j then return nil end
-	
-	local path = dfs(Vec3(Spring.GetUnitPosition(transports[i])),Vec3(Spring.GetUnitPosition(rescuable[j])),dangerMap)
-	
+return function(transport,rescuable,danger)
+	local path = nil
+	if transport ~= nil then
+		path = dfs(Vec3(Spring.GetUnitPosition(transport)),Vec3(Spring.GetUnitPosition(rescuable)),danger)	
+	end
 	return path
 end
